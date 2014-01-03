@@ -1,24 +1,29 @@
-﻿=== Notify Users E-Mail ===
-Contributors: codehost, valeriosza, ThalitaPinheiro
+=== Notify Users E-Mail ===
+Contributors: codehost, valeriosza, claudiosanches, ThalitaPinheiro
 Donate link: http://valeriosouza.com.br/doacoes/
 Tags: notification, users, emails, post, new posts,
 Requires at least: 3.0
-Tested up to: 3.7
-Stable tag: 1.0.4
+Tested up to: 3.8
+Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Notification of new posts by e-mail to all users
+Send an email to all users whenever a new post is published on your WordPress.
 
 == Description ==
 
-Notification of new posts by e-mail to all users
+Send an email to all users whenever a new post is published on your WordPress.
 
 This Plugin Notify of new posts by e-mail to all users your WordPress.
 
 = Descrição =
 
-Esse plugin Notifica todos seus usuários via e-mail, a cada novo post.
+Envie um email para todos os usuários, sempre que um novo post for publicado em seu WordPress.
+
+= Descripción =
+
+Este complemento envia una notificación de nueva entrada, por correo, a todos los usuarios de tu WordPress.
+
 
 == Installation ==
 
@@ -32,14 +37,20 @@ Esse plugin Notifica todos seus usuários via e-mail, a cada novo post.
 1. Ative o plugin atravês da opção Plugins do Menu do seu WordPress
 1. Comece a postagem de contéudo e automáticamente ao publicar, um e-mail será enviado..
 
+= Instalación =
+1. Suba el `Notify Users E-Mail` para la carpeta `/wp-content/plugins/`
+1. Active el complemento a través de la opción 'Plugins' del Menú de tu WordPress.
+1. Empiece a añadir entradas y automaticamente, al añadir las nuevas entradas, un correo será enviado.
 
-= Contribute =
+
+== Contribute ==
 
 Use https://github.com/valeriosouza/notify_users_email
 
 and
 
 http://valeriosouza.com.br/doacoes/
+
 = Colaborar =
 
 Para colaborar, use o https://github.com/valeriosouza/notify_users_email
@@ -47,6 +58,15 @@ Para colaborar, use o https://github.com/valeriosouza/notify_users_email
 e
 
 http://valeriosouza.com.br/doacoes/
+
+= Contribuir =
+
+Para contribuir, visite https://github.com/valeriosouza/notify_users_email
+
+y
+
+http://valeriosouza.com.br/doacoes/
+
 
 = Dúvidas? =
 
@@ -58,6 +78,10 @@ em breve
 soon
 
 == Changelog ==
+
+= 2.0.0 - 03/01/2014 =
+
+* Version 2.0 with fields Customization of texts
 
 = 1.0.4 - 02/09/2013 =
 
