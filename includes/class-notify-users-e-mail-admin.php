@@ -9,6 +9,11 @@
  * @copyright 2013 CodeHost
  */
 
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
 /**
  * Notify Users E-Mail admin class.
  *
@@ -18,23 +23,11 @@
 class Notify_Users_EMail_Admin {
 
 	/**
-	 * Instance of this class.
-	 *
-	 * @since    2.0.0
-	 *
-	 * @var      object
-	 */
-	protected static $instance = null;
-
-	/**
 	 * Initialize the plugin by loading admin scripts & styles and adding a
 	 * settings page and menu.
-	 *
-	 * @since     2.0.0
 	 */
-	private function __construct() {
+	public function __construct() {
 		$plugin              = Notify_Users_EMail::get_instance();
-		$this->plugin_slug   = $plugin->get_plugin_slug();
 		$this->settings_name = $plugin->get_settings_name();
 
 		// Add the options page and menu item.
@@ -44,39 +37,21 @@ class Notify_Users_EMail_Admin {
 		add_action( 'admin_init', array( $this, 'plugin_settings' ) );
 
 		// Add an action link pointing to the options page.
-		$plugin_basename = plugin_basename( plugin_dir_path( __DIR__ ) . $this->plugin_slug . '.php' );
+		$plugin_basename = plugin_basename( plugin_dir_path( __DIR__ ) . 'notify-users-e-mail' . '.php' );
 		add_filter( 'plugin_action_links_' . $plugin_basename, array( $this, 'add_action_links' ) );
-	}
-
-	/**
-	 * Return an instance of this class.
-	 *
-	 * @since     2.0.0
-	 *
-	 * @return    object    A single instance of this class.
-	 */
-	public static function get_instance() {
-		// If the single instance hasn't been set, set it now.
-		if ( null == self::$instance ) {
-			self::$instance = new self;
-		}
-
-		return self::$instance;
 	}
 
 	/**
 	 * Register the administration menu for this plugin into the WordPress Dashboard menu.
 	 *
-	 * @since    2.0.0
-	 *
 	 * @return   void
 	 */
 	public function add_plugin_admin_menu() {
 		add_options_page(
-			__( 'Notify Users E-Mail', $this->plugin_slug ),
-			__( 'Notify Users E-Mail', $this->plugin_slug ),
+			__( 'Notify Users E-Mail', 'notify-users-e-mail' ),
+			__( 'Notify Users E-Mail', 'notify-users-e-mail' ),
 			'manage_options',
-			$this->plugin_slug,
+			'notify-users-e-mail',
 			array( $this, 'display_plugin_admin_page' )
 		);
 	}
@@ -84,9 +59,7 @@ class Notify_Users_EMail_Admin {
 	/**
 	 * Render the settings page for this plugin.
 	 *
-	 * @since    2.0.0
-	 *
-	 * @return   void
+	 * @return void
 	 */
 	public function display_plugin_admin_page() {
 		$settings_name = $this->settings_name;
@@ -97,28 +70,26 @@ class Notify_Users_EMail_Admin {
 	/**
 	 * Plugin settings form fields.
 	 *
-	 * @since     2.0.0
-	 *
-	 * @return    void
+	 * @return void
 	 */
 	public function plugin_settings() {
 		$settings_section = 'settings_section';
 		$placeholders_description = sprintf(
-			__( '%s You can use the following placeholders:%s %s', $this->plugin_slug ),
+			__( '%s You can use the following placeholders:%s %s', 'notify-users-e-mail' ),
 			'<p>',
 			'</p>',
 			sprintf(
 				'<ul><li><p><code>{title}</code> %s</p></li><li><p><code>{link}</code> %s</p></li><li><p><code>{date}</code> %s</p></li></ul>',
-				__( 'to display the title', $this->plugin_slug ),
-				__( 'to display the URL', $this->plugin_slug ),
-				__( 'to display the date of publication', $this->plugin_slug )
+				__( 'to display the title', 'notify-users-e-mail' ),
+				__( 'to display the URL', 'notify-users-e-mail' ),
+				__( 'to display the date of publication', 'notify-users-e-mail' )
 			)
 		);
 
 		// Set the settings section.
 		add_settings_section(
 			$settings_section,
-			__( 'Email Settings', $this->plugin_slug ),
+			__( 'Email Settings', 'notify-users-e-mail' ),
 			'__return_false',
 			$this->settings_name
 		);
@@ -126,13 +97,13 @@ class Notify_Users_EMail_Admin {
 		// Sent to.
 		add_settings_field(
 			'send_to',
-			__( 'Sent to', $this->plugin_slug ),
+			__( 'Sent to', 'notify-users-e-mail' ),
 			array( $this, 'text_callback' ),
 			$this->settings_name,
 			$settings_section,
 			array(
 				'id'          => 'send_to',
-				'description' => sprintf( '<p>' . __( 'Enter with the recipients for the email (separated by commas).', $this->plugin_slug ) . '</p>' ),
+				'description' => sprintf( '<p>' . __( 'Enter with the recipients for the email (separated by commas).', 'notify-users-e-mail' ) . '</p>' ),
 				'default'     => ''
 			)
 		);
@@ -140,40 +111,96 @@ class Notify_Users_EMail_Admin {
 		// Send to users.
 		add_settings_field(
 			'send_to_users',
-			__( 'Send to users', $this->plugin_slug ),
+			__( 'Send to users', 'notify-users-e-mail' ),
 			array( $this, 'users_callback' ),
 			$this->settings_name,
 			$settings_section,
 			array(
 				'id'          => 'send_to_users',
-				'description' => '<p>' . __( 'Select the type of user that will receive notifications.', $this->plugin_slug ) . '</p>',
+				'description' => '<p>' . __( 'Select the type of user that will receive notifications.', 'notify-users-e-mail' ) . '</p>',
 				'default'     => array()
 			)
 		);
 
-		// Email Subject.
+		// Email Subject Post.
 		add_settings_field(
-			'subject',
-			__( 'Subject', $this->plugin_slug ),
+			'subject_post',
+			__( 'Subject to Post', 'notify-users-e-mail' ),
 			array( $this, 'text_callback' ),
 			$this->settings_name,
 			$settings_section,
 			array(
-				'id'          => 'subject',
+				'id'          => 'subject_post',
 				'description' => $placeholders_description,
 				'default'     => ''
 			)
 		);
 
-		// Email Body Prefix.
+		// Email Body Prefix Post.
 		add_settings_field(
-			'body',
-			__( 'Body', $this->plugin_slug ),
+			'body_post',
+			__( 'Body to Post', 'notify-users-e-mail' ),
 			array( $this, 'textarea_callback' ),
 			$this->settings_name,
 			$settings_section,
 			array(
-				'id'          => 'body',
+				'id'          => 'body_post',
+				'description' => $placeholders_description,
+				'default'     => ''
+			)
+		);
+
+		// Email Subject Page.
+		add_settings_field(
+			'subject_page',
+			__( 'Subject to Page', 'notify-users-e-mail' ),
+			array( $this, 'text_callback' ),
+			$this->settings_name,
+			$settings_section,
+			array(
+				'id'          => 'subject_page',
+				'description' => $placeholders_description,
+				'default'     => ''
+			)
+		);
+
+		// Email Body Prefix Page.
+		add_settings_field(
+			'body_page',
+			__( 'Body to Page', 'notify-users-e-mail' ),
+			array( $this, 'textarea_callback' ),
+			$this->settings_name,
+			$settings_section,
+			array(
+				'id'          => 'body_page',
+				'description' => $placeholders_description,
+				'default'     => ''
+			)
+		);
+
+		// Email Subject Comment.
+		add_settings_field(
+			'subject_comment',
+			__( 'Subject to comment', 'notify-users-e-mail' ),
+			array( $this, 'text_callback' ),
+			$this->settings_name,
+			$settings_section,
+			array(
+				'id'          => 'subject_comment',
+				'description' => $placeholders_description,
+				'default'     => ''
+			)
+		);
+
+		// Email Body Prefix Comment.
+		add_settings_field(
+			'body_comment',
+			__( 'Body to Comment', 'notify-users-e-mail' ),
+			array( $this, 'textarea_callback' ),
+			$this->settings_name,
+			$settings_section,
+			array(
+				'id'          => 'body_comment',
 				'description' => $placeholders_description,
 				'default'     => ''
 			)
@@ -186,12 +213,10 @@ class Notify_Users_EMail_Admin {
 	/**
 	 * Get option value.
 	 *
-	 * @since     2.0.0
+	 * @param  string $id      Option ID.
+	 * @param  string $default Default option.
 	 *
-	 * @param     string $id      Option ID.
-	 * @param     string $default Default option.
-	 *
-	 * @return    array           Option value.
+	 * @return array           Option value.
 	 */
 	protected function get_option_value( $id, $default = '' ) {
 		$options = get_option( $this->settings_name );
@@ -206,11 +231,9 @@ class Notify_Users_EMail_Admin {
 	/**
 	 * Users field callback.
 	 *
-	 * @since     2.0.0
+	 * @param  array $args Arguments from the option.
 	 *
-	 * @param     array $args Arguments from the option.
-	 *
-	 * @return    string      Input field HTML.
+	 * @return string      Input field HTML.
 	 */
 	public function users_callback( $args ) {
 		$id       = $args['id'];
@@ -239,11 +262,9 @@ class Notify_Users_EMail_Admin {
 	/**
 	 * Text field callback.
 	 *
-	 * @since     2.0.0
+	 * @param  array $args Arguments from the option.
 	 *
-	 * @param     array $args Arguments from the option.
-	 *
-	 * @return    string      Input field HTML.
+	 * @return string      Input field HTML.
 	 */
 	public function text_callback( $args ) {
 		$id = $args['id'];
@@ -264,11 +285,9 @@ class Notify_Users_EMail_Admin {
 	/**
 	 * Textarea field callback.
 	 *
-	 * @since     2.0.0
+	 * @param  array $args Arguments from the option.
 	 *
-	 * @param     array $args Arguments from the option.
-	 *
-	 * @return    string      Input field HTML.
+	 * @return string      Input field HTML.
 	 */
 	public function textarea_callback( $args ) {
 		$id = $args['id'];
@@ -289,11 +308,9 @@ class Notify_Users_EMail_Admin {
 	/**
 	 * Valid options.
 	 *
-	 * @since    2.0.0
+	 * @param  array $input Options to valid.
 	 *
-	 * @param    array $input Options to valid.
-	 *
-	 * @return   array        Validated options.
+	 * @return array        Validated options.
 	 */
 	public function validate_options( $input ) {
 		$output = array();
@@ -306,7 +323,7 @@ class Notify_Users_EMail_Admin {
 						$send_to_users[] = sanitize_text_field( $value );
 					}
 					$output[ $key ] = $send_to_users;
-				} elseif ( 'body' == $key ) {
+				} elseif ( 'body_post' == $key ) {
 					$output[ $key ] = wp_kses( $input[ $key ], array() );
 				} else {
 					$output[ $key ] = sanitize_text_field( $input[ $key ] );
@@ -319,15 +336,15 @@ class Notify_Users_EMail_Admin {
 
 	/**
 	 * Add settings action link to the plugins page.
-	 *
-	 * @since    2.0.0
 	 */
 	public function add_action_links( $links ) {
 		return array_merge(
 			array(
-				'settings' => '<a href="' . admin_url( 'options-general.php?page=' . $this->plugin_slug ) . '">' . __( 'Settings', $this->plugin_slug ) . '</a>'
+				'settings' => '<a href="' . admin_url( 'options-general.php?page=notify-users-e-mail' ) . '">' . __( 'Settings', 'notify-users-e-mail' ) . '</a>'
 			),
 			$links
 		);
 	}
 }
+
+new Notify_Users_EMail_Admin();
