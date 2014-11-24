@@ -1,4 +1,0 @@
-<?php 
-# Word is Silver ...
-
-?>

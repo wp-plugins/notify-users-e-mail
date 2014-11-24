@@ -12,8 +12,8 @@
 Plugin Name:       Post Notification by Email
 Plugin URI:        http://wordpress.org/plugins/notify-users-e-mail/
 Description:       Notification of new posts by e-mail to all users
-Version:           4.0.0
-Author:            Valerio Souza, claudiosanches
+Version:           4.0.1
+Author:            Valerio Souza, Claudio Sanches
 Author URI:        http://valeriosouza.com.br
 Text Domain:       notify-users-e-mail
 License:           GPL-2.0+
@@ -44,7 +44,7 @@ class Notify_Users_EMail {
 	 *
 	 * @var string
 	 */
-	const VERSION = '4.0.0';
+	const VERSION = '4.0.1';
 
 	/**
 	 * Instance of this class.
@@ -180,13 +180,37 @@ class Notify_Users_EMail {
 		$plugin = isset( $_REQUEST['plugin'] ) ? $_REQUEST['plugin'] : '';
 		check_admin_referer( 'activate-plugin_' . $plugin );
 
+		$args = array(
+			'type'                     => 'post',
+			'child_of'                 => 0,
+			'parent'                   => '',
+			'orderby'                  => 'id',
+			'order'                    => 'ASC',
+			'hide_empty'               => 1,
+			'hierarchical'             => 1,
+			'exclude'                  => '',
+			'include'                  => '',
+			'number'                   => '',
+			'taxonomy'                 => 'category',
+			'pad_counts'               => false 
+
+		); 
+		$list_categories = get_categories( $args );
+		$array_category = array();
+		foreach ($list_categories as $item_category) {
+			$array_category[] = $item_category->cat_ID; 
+		};
+
 		$options = array(
-			'send_to'          => '',
-			'send_to_users'    => array_keys( get_editable_roles() ),
-			'subject_post'     => sprintf( __( 'New post published at %s on {date}', 'notify-users-e-mail' ), get_bloginfo( 'name' ) ),
-			'body_post'        => __( 'A new post {title} - {link_post} has been published on {date}.', 'notify-users-e-mail' ),
-			'subject_comment'  => sprintf( __( 'New comment published at %s', 'notify-users-e-mail' ), get_bloginfo( 'name' ) ),
-			'body_comment'     => __( 'A new comment {link_comment} has been published.', 'notify-users-e-mail' ),
+			'send_to'          				=> '',
+			'send_to_users'    				=> array_keys( get_editable_roles() ),
+			'subject_post'     				=> sprintf( __( 'New post published at %s on {date}', 'notify-users-e-mail' ), get_bloginfo( 'name' ) ),
+			'body_post'        				=> __( 'A new post {title} - {link_post} has been published on {date}.', 'notify-users-e-mail' ),
+			'subject_comment'  				=> sprintf( __( 'New comment published at %s', 'notify-users-e-mail' ), get_bloginfo( 'name' ) ),
+			'body_comment'     				=> __( 'A new comment {link_comment} has been published.', 'notify-users-e-mail' ),
+			'conditional_post_type'			=> array( 'post', 'page' ),
+			'conditional_taxonomy_post_tag' => '',
+			'conditional_taxonomy_category' => $array_category,
 		);
 
 		add_option( 'notify_users_email', $options );
@@ -225,6 +249,8 @@ class Notify_Users_EMail {
 				update_option( 'notify_users_email', $options );
 				update_option( 'notify_users_email_version', self::VERSION );
 			}
+		} elseif ($version <> self::VERSION) {
+			update_option( 'notify_users_email_version', self::VERSION );
 		}
 	}
 
