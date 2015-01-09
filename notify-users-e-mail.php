@@ -12,7 +12,7 @@
 Plugin Name:       Post Notification by Email
 Plugin URI:        http://wordpress.org/plugins/notify-users-e-mail/
 Description:       Notification of new posts by e-mail to all users
-Version:           4.0.3
+Version:           4.0.4
 Author:            Valerio Souza, Claudio Sanches
 Author URI:        http://valeriosouza.com.br
 Text Domain:       notify-users-e-mail
@@ -42,7 +42,7 @@ class Notify_Users_EMail {
 	 *
 	 * @var string
 	 */
-	const VERSION = '4.0.3';
+	const VERSION = '4.0.4';
 
 	/**
 	 * Instance of this class.
@@ -260,7 +260,7 @@ class Notify_Users_EMail {
 	public function load_plugin_textdomain() {
 		$locale = apply_filters( 'plugin_locale', get_locale(), 'notify-users-e-mail' );
 
-		load_textdomain( 'notify-users-e-mail', trailingslashit( WP_LANG_DIR ) . 'notify-users-e-mail/notify-users-e-mail-' . $locale . '.mo' );
+		load_plugin_textdomain( 'notify-users-e-mail', trailingslashit( WP_LANG_DIR ) . 'notify-users-e-mail/notify-users-e-mail-' . $locale . '.mo' );
 		load_plugin_textdomain( 'notify-users-e-mail', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	}
 

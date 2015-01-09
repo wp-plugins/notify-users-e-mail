@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Notify Users E-Mail v3.0.0\n"
-"POT-Creation-Date: 2014-12-25 22:13-0300\n"
-"PO-Revision-Date: 2014-12-25 22:14-0300\n"
+"POT-Creation-Date: 2015-01-08 22:23-0300\n"
+"PO-Revision-Date: 2015-01-08 22:24-0300\n"
 "Last-Translator: Valerio <valeriosza@gmail.com>\n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -12,7 +12,7 @@ msgstr ""
 "X-Generator: Poedit 1.6.5\n"
 "X-Poedit-Basepath: ../\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-KeywordsList: __;_e;esc_attr__\n"
+"X-Poedit-KeywordsList: __;_e;esc_attr__;_x\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
 
@@ -25,17 +25,11 @@ msgid "Add file"
 msgstr ""
 
 #: includes/class-notify-users-e-mail-admin.php:91
-#: includes/class-notify-users-e-mail-admin.php:92
-#: includes/class-notify-users-e-mail-admin.php:117
 msgid "Post Notification by Email"
 msgstr ""
 
 #: includes/class-notify-users-e-mail-admin.php:118
 msgid "Welcome"
-msgstr ""
-
-#: includes/class-notify-users-e-mail-admin.php:133
-msgid "Post Notification by Email Settings"
 msgstr ""
 
 #: includes/class-notify-users-e-mail-admin.php:134
@@ -244,4 +238,8 @@ msgstr ""
 
 #: notify-users-e-mail.php:208
 msgid "A new comment {link_comment} has been published."
+msgstr ""
+
+#: notify-users-e-mail.php:273
+msgid "\\a\\t"
 msgstr ""
