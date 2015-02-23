@@ -1,0 +1,240 @@
+# 
+# Translators:
+# Lukáš Przeczek <przecza@gmail.com>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: Post Notification Email\n"
+"POT-Creation-Date: 2015-02-20 20:14-0300\n"
+"PO-Revision-Date: 2015-02-20 22:24+0000\n"
+"Last-Translator: Valério Souza <valeriosza@gmail.com>\n"
+"Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/post-notification-email/language/cs_CZ/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: cs_CZ\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Poedit 1.6.5\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-KeywordsList: __;_e;esc_attr__;_x\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: includes/class-notify-users-e-mail-admin.php:77
+msgid "Choose a file"
+msgstr "Vybrat soubor"
+
+#: includes/class-notify-users-e-mail-admin.php:78
+msgid "Add file"
+msgstr "Přidat soubor"
+
+#: includes/class-notify-users-e-mail-admin.php:91
+msgid "Post Notification by Email"
+msgstr "Notifikace emailem"
+
+#: includes/class-notify-users-e-mail-admin.php:118
+msgid "Welcome"
+msgstr "Vítejte"
+
+#: includes/class-notify-users-e-mail-admin.php:134
+#: includes/class-notify-users-e-mail-admin.php:575
+msgid "Settings"
+msgstr "Nastavení"
+
+#: includes/class-notify-users-e-mail-admin.php:158
+#: includes/class-notify-users-e-mail-admin.php:170
+#, php-format
+msgid "%s You can use the following placeholders:%s %s"
+msgstr "%s Můžete použít následující proměnné:%s %s"
+
+#: includes/class-notify-users-e-mail-admin.php:163
+msgid "to display the title"
+msgstr "pro zobrazení názvu"
+
+#: includes/class-notify-users-e-mail-admin.php:164
+msgid "to display the URL"
+msgstr "pro zobrazení URL"
+
+#: includes/class-notify-users-e-mail-admin.php:165
+msgid "to display the content"
+msgstr "Pro zobrazení obsahu"
+
+#: includes/class-notify-users-e-mail-admin.php:166
+msgid "to display the date of publication"
+msgstr "pro zobrazení data publikování"
+
+#: includes/class-notify-users-e-mail-admin.php:175
+msgid "to display the post title"
+msgstr "pro zobrazení názvu příspěvku"
+
+#: includes/class-notify-users-e-mail-admin.php:176
+msgid "to display the comment URL"
+msgstr "pro zobrazení URL komentáře"
+
+#: includes/class-notify-users-e-mail-admin.php:177
+msgid "to display the date of comment publication"
+msgstr "pro zobrazení data zveřejnění komentáře"
+
+#: includes/class-notify-users-e-mail-admin.php:185
+msgid "Email Settings"
+msgstr "Nastavení emailu"
+
+#: includes/class-notify-users-e-mail-admin.php:193
+msgid "Sent to"
+msgstr "Odeslána na"
+
+#: includes/class-notify-users-e-mail-admin.php:199
+msgid ""
+"Enter email address (separated by commas) for emails to be sent regardless "
+"of settings below. A registered user may receive two emails if you list it "
+"here."
+msgstr "Zadejte e-mailové adresy (oddělené čárkou) pro e-maily, které mají být zaslány bez ohledu na nastavení níže. Registrovaný uživatel může dostat dva e-maily, pokud jej zde uvedete."
+
+#: includes/class-notify-users-e-mail-admin.php:207
+msgid "Send to users"
+msgstr "Odeslat uživatelům"
+
+#: includes/class-notify-users-e-mail-admin.php:213
+msgid ""
+"Select the type of user that will receive notifications. You can choose more"
+" than one type using ctrl+click."
+msgstr "Vyberte typ uživatele, který obdrží oznámení. Můžete si vybrat více než jeden typ pomocí Ctrl +kliknutí."
+
+#: includes/class-notify-users-e-mail-admin.php:222
+msgid "Email subject for new posts, pages and post types."
+msgstr "Předmět emailu pro nový příspěvek, stránku a post type"
+
+#: includes/class-notify-users-e-mail-admin.php:236
+msgid "Email body for new posts, pages and post types."
+msgstr "Tělo emailu pro nový příspěvek, stránku a post type"
+
+#: includes/class-notify-users-e-mail-admin.php:250
+msgid "Email subject for new comments"
+msgstr "Předmět emailu pro nový komentář"
+
+#: includes/class-notify-users-e-mail-admin.php:264
+msgid "Email body for new comments"
+msgstr "Obsah emailu pro nový komentář"
+
+#: includes/class-notify-users-e-mail-admin.php:279
+msgid "Conditional Settings"
+msgstr "Podmíněné nastavení"
+
+#: includes/class-notify-users-e-mail-admin.php:300
+msgid "Post Types"
+msgstr "Typy příspěvků"
+
+#: includes/class-notify-users-e-mail-admin.php:307
+msgid "Which Post Types will trigger a notification"
+msgstr "Které Typy příspěvků spustí oznámení"
+
+#: includes/class-notify-users-e-mail-admin.php:345
+#, php-format
+msgid "Which terms from %s will send a notification"
+msgstr "Jaké podmínky z %s zašlou oznámení"
+
+#: includes/class-notify-users-e-mail-admin.php:348
+#, php-format
+msgid "Select the %s"
+msgstr "Vyberte %s"
+
+#: includes/class-notify-users-e-mail-admin.php:446
+msgid "Choose some Options"
+msgstr "Vyberte nějaké nastavení"
+
+#: includes/class-notify-users-e-mail-admin.php:521
+msgid "Select image"
+msgstr "Vybrat obrázek"
+
+#: includes/class-notify-users-e-mail-admin.php:521
+msgid "Remove image"
+msgstr "Odebrat obrázek"
+
+#: includes/views/admin.php:23
+msgid ""
+"This plugin notifies registered users via email of new posts, pages and "
+"comments posted."
+msgstr "Tento plugin upozorní registrované uživatele e-mailem o nových příspěvcích, stránkách a přidaných komentářích."
+
+#: includes/views/welcome.php:22
+msgid "Welcome to"
+msgstr "Vítejte v"
+
+#: includes/views/welcome.php:23
+msgid ""
+"This plugin notifies registered users via email of new posts, comments, and "
+"any post type posted."
+msgstr "Tento plugin upozorní registrované uživatele e-mailem o nových příspěvcích, komentářích a jakýchkoliv typech příspěvků."
+
+#: includes/views/welcome.php:27 includes/views/welcome.php:75
+msgid "Go to Configuration Plugin"
+msgstr "Přejděte na Konfiguraci Plugin"
+
+#: includes/views/welcome.php:31
+msgid "What's new in this release."
+msgstr "Co je nového v této verzi"
+
+#: includes/views/welcome.php:32
+msgid ""
+"Now it is possible to choose which post type and taxonomy which emails are "
+"sent."
+msgstr "Nyní je možné si vybrat, který typy příspěvků a taxonomie, které e-maily jsou odesílány.u"
+
+#: includes/views/welcome.php:35
+msgid "More beautiful with HTML content!"
+msgstr "Hezčí s HTML obsahem"
+
+#: includes/views/welcome.php:36
+msgid ""
+"New HTML editors allow you to customize the contents of the email, and even "
+"embed images, videos and what more do you want to. "
+msgstr "Nové HTML editory umožňují přizpůsobit obsah e-mailu, a dokonce i vložení obrázků, videa mnohého dalšího. "
+
+#: includes/views/welcome.php:41
+msgid "Contents of the post directly in the body of the email!"
+msgstr "Obsah příspěvku přímo v těle e-mailu!"
+
+#: includes/views/welcome.php:42
+msgid ""
+"It is now possible to send the entire contents of the post directly in your "
+"email. This is amazing."
+msgstr "Nyní je možné zaslat celý obsah příspěvku přímo ve vašem e-mailu. To je úžasné."
+
+#: includes/views/welcome.php:45
+msgid "Keep up with the news"
+msgstr "Buďte v obraze"
+
+#: includes/views/welcome.php:46
+msgid ""
+"We are preparing many new features, stay tuned by subscribing to our email "
+"Marketing. We promise not to send Spam."
+msgstr "Připravujeme řadu nových funkcí, zůstaňte naladěni, přihlaste se k našemu e-mail-marketingu. Slibujeme, že nebudem rozesílat spam."
+
+#: includes/views/welcome.php:58
+msgid "Email Address"
+msgstr "Emailová adresa"
+
+#: includes/views/welcome.php:66
+msgid "Subscribe"
+msgstr "Přihlásit k odběru"
+
+#: notify-users-e-mail.php:207
+#, php-format
+msgid "New post published at %s on {date}"
+msgstr "Nový příspěvek byl zveřejněn {date} v %s "
+
+#: notify-users-e-mail.php:208
+msgid "A new post {title} - {link_post} has been published on {date}."
+msgstr "Nový příspěvek {title} - {link_post} byl zveřejněn {date}."
+
+#: notify-users-e-mail.php:209
+#, php-format
+msgid "New comment published at %s"
+msgstr "Nový komentář by zveřejněn v %s"
+
+#: notify-users-e-mail.php:210
+msgid "A new comment {link_comment} has been published."
+msgstr "Nový komentář {link_comment} byl zveřejněn"
+
+#: notify-users-e-mail.php:275
+msgid "\\a\\t"
+msgstr "\\a\\t"
